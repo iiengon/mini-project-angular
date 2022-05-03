@@ -1,0 +1,85 @@
+
+
+<div class="row mt-3 justify-content-center">
+  <div class="col-10">
+    <div class="card">
+      <div class="card-header">
+        <h5>Order List</h5>
+      </div>
+      <div class="card-body">
+        <div class="body-order-list" *ngIf="carts.length > 0;else other_content">
+          <div class="row header-title" *ngIf="carts.length > 0">
+            <div class="col-1">
+            </div>
+            <div class="col-8">
+              <p>Product</p>
+            </div>
+            <div class="col-1">
+              <p>Price</p>
+            </div>
+            <div class="col-1">
+              <p>Amount</p>
+            </div>
+            <div class="col-1">
+              <p>Value</p>
+            </div>
+            <hr class="m-0">
+          </div>
+          <div class="row mt-2" style="display: flex;justify-content: center;">
+              <ng-container *ngFor="let item of carts">
+                <div class="col-1 dflex">
+                  <img (click)="deleteProduct(item.productId)" src="https://t4.ftcdn.net/jpg/03/46/38/39/360_F_346383913_JQecl2DhpHy2YakDz1t3h0Tk3Ov8hikq.jpg" width="50px">
+                </div>
+                  <div class="col-7">
+                   <div class="product-deatil">
+                    <img src="{{item.thumbnail}}" height="60px">
+                    <span class="text-product">{{item.productName}}</span>
+                   </div>
+                  </div>
+                  <div class="col-1 dflex">
+                    <p>฿ {{item.unitPrice | number:'1.2-2'}}</p>
+                  </div>
+                  <div class="col-2 dflex">
+                    <button class="increase-decrease" (click)="fnDecrease(item.productId)">-</button>
+                    <input type="number" class="form-control" id="quantity" [value]="item.quantity" style="width: 30%;" min="1">
+                    <button class="increase-decrease" (click)="fnIncrease(item.productId)">+</button>
+                  </div>
+                  <div class="col-1 dflex">
+                    <p>฿ {{item.unitPrice | number:'1.2-2'}}</p>
+
+                  </div>
+                  <hr class="m-2">
+              </ng-container>
+
+          </div>
+          <div class="summary-total">
+              <div class="row sum-total justify-content-end">
+                <div class="col-2 d-flex justify-content-center">Total Value</div>
+                <div class="col-2 d-flex justify-content-end">฿ {{totalPrice | number:'1.2-2'}}</div>
+              </div>
+              <div class="row delivery justify-content-end">
+                <div class="col-2 d-flex justify-content-center">Delivery {{delivery?.name}}</div>
+                <div class="col-2 d-flex justify-content-end">{{delivery?.value}}</div>
+              </div>
+              <div class="row net-value justify-content-end">
+                <div class="col-2 d-flex justify-content-center">Net Value</div>
+                <div class="col-2 d-flex justify-content-end">{{deliveryPrice | number:'1.2-2'}}</div>
+              </div>
+          </div>
+        </div>
+        <ng-template #other_content>
+          <div class="no-order">
+            <div class="row justify-content-center">
+              <div class="col-8 no-order-cart">
+                <img src="https://i.pinimg.com/originals/ae/bc/8c/aebc8c60e30c83f3ab34c978733dab26.png" width="40%">
+                <div class="text">
+                  <h5>No have order</h5>
+              </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="icon-edit float-end" (click)="editForm()">
+    <img src="https://www.freeiconspng.com/thumbs/edit-icon-png/edit-editor-pen-pencil-write-icon--4.png" width="30">
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">
+          <h5>Form</h5>
+        </div>
+        <div class="card-body">
+          <div class="form-content">
+            <form [formGroup]="myForm">
+              <div class="mb-3 form-group">
+                <label for="productName" class="form-label">Product Name :</label>
+                <input type="text" class="form-control" id="productName" name="productName" maxlength="30" formControlName="productName"  autocomplete="false">
+                <span class="float-end fs-size">{{ productName?.value.length || 0 }}/30</span>
+                <div [appValidation]="$any(myForm.get('productName'))"></div>
+              </div>
+              <div class="mb-3 form-group">
+                <label for="shortDescription" class="form-label">Short Description :</label>
+                <input type="text" class="form-control" id="shortDescription" name="shortDescription" formControlName="shortDescription" maxlength="40">
+                <span class="float-end fs-size">{{ shortDescription?.value.length || 0 }}/40</span>
+              </div>
+              <div class="mb-3 form-group">
+                <label for="description" class="form-label">Product Description :</label>
+                <textarea class="form-control" id="description" name="description" formControlName="description" rows="4" maxlength="255"></textarea>
+                <span class="float-end fs-size">{{ description?.value.length || 0 }}/255</span>
+              </div>
+              <div class="mb-3 form-group">
+                <label for="price" class="form-label">Price :</label>
+                <input type="number" class="form-control" id="price" name="price"  formControlName="price" min="0" (change)="onPriceDecimal($event)">
+                <div [appValidation]="$any(myForm.get('price'))"></div>
+              </div>
+              <div class="mb-3 form-group">
+                <label for="brand" class="form-label">Brand :</label>
+                <input type="text" class="form-control" id="brand" name="brand" formControlName="brand">
+                <div [appValidation]="$any(myForm.get('brand'))"></div>
+                <!-- <div class="invalid-feedback">
+                 {{ getErrorMessage(myForm.controls['brand'])}}
+                </div> -->
+              </div>
+              <div class="mb-3 form-group">
+                <label for="productCate" class="form-label">Product Category :</label>
+                <select class="form-select" formControlName="productCate" [ngClass]="{'error': isSubmit && myForm.get('productCate')?.invalid}">
+                  <option *ngFor="let cate of productCates" [value]="cate">{{cate}}</option>
+                </select>
+                <div class="errorMessage" *ngIf="isSubmit && myForm.get('productCate')?.invalid">
+                  Please select a ProductCategory.
+                </div>
+              </div>
+              <div class="mb-3 formGroup ng-select">
+                <label class="mb-2">Available for sale at :</label>
+                <ng-select [items]="cities2"
+                           bindLabel="name"
+                           formControlName="selectedCitiesIds"
+                           bindValue="name"
+                           [multiple]="true"
+                           [addTag]="addCustomUser"
+                          >
+                </ng-select>
+              </div>
+              <div class="accordion" id="accordionExample" formArrayName="optionProducts">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Custom Field
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <div class="ic-plus mb-3 d-flex justify-content-end">
+                          <img [hidden]="editAction" (click)="addOptionValue()" src="https://www.freeiconspng.com/thumbs/add-icon-png/add-1-icon--flatastic-1-iconset--custom-icon-design-0.png" width="30">
+                        </div>
+                        <div class="form-group mb-3">
+                            <select class="form-select" name="optionName" formControlName="optionName">
+                            <option value="size">size</option>
+                            <option value="color">color</option>
+                          </select>
+                          <div class="errorMessage" *ngIf="myForm.get('optionProducts')?.get('optionName')?.touched && myForm.get('optionProducts')?.get('optionName')?.invalid">
+                            Please select a optionName.
+                           </div>
+                        </div>
+
+                        <div class="txtTextVauleArray" formArrayName="txtTextVauleArray">
+                          <ng-container *ngFor="let option of txtTextVauleArray.controls;let i=index" [formGroupName]="i">
+                            <div class="form-group">
+                              <label for="optionValue" class="form-label"> Text :</label>
+                              <span class="float-end mb-1" (click)="delOptionValue(i)" [hidden]="editAction"><img src="https://icon-library.com/images/delete-icon-png/delete-icon-png-19.jpg" width="30"></span>
+                              <input type="text" class="form-control" id="optionValue" name="optionValue" formControlName="optionValue">
+                              <!-- <div class="invalid-feedback">
+                                {{ getErrorMessage($any(txtTextVauleArray.controls[i].get('optionValue')))}}
+                               </div> -->
+                               <div [appValidation]="$any(txtTextVauleArray.controls[i].get('optionValue'))"></div>
+                            </div>
+                            <div class="form-group">
+                              <label for="optionValue" class="form-label">Price :</label>
+                              <input type="number" class="form-control" min="0" id="optionPrice" name="optionPrice" formControlName="optionPrice" (change)="onPriceDecimal($event,i)">
+                              <div [appValidation]="$any(txtTextVauleArray.controls[i].get('optionPrice'))"></div>
+                            </div>
+                            </ng-container>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!-- <div class="d-grid gap-2 col-6 mx-auto">
+
+
+              </div> -->
+              <div class="row mt-2 justify-content-center">
+                <div class="col-4">
+                  <button type="button" class="btn btn-success btn-w" (click)="submitForm()">Submit</button>
+                </div>
+                <div class="col-4">
+                  <button type="button" class="btn btn-warning btn-w" (click)="cancelForm()">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

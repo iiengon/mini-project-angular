@@ -1,0 +1,11 @@
+.product-description{
+  height: 72px;
+  .cut-description{
+    display: -webkit-box;
+    width: 100%;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+  }
+}

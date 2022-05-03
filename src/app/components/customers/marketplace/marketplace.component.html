@@ -1,0 +1,16 @@
+<div class="nav-bar-menu" style="padding: 15px;">
+  <ul class="nav justify-content-center">
+    <li class="nav-item" *ngFor="let item of navbarMenus">
+      <a class="nav-link" [ngClass]="{'is-active': item.active}" (click)="onNavClick(item)">{{item.name}}</a>
+    </li>
+  </ul>
+</div>
+<div class="row product-list">
+  <div class="col-md-3 col-4 mt-3" *ngFor="let product of products">
+    <app-product-item [product]="product"></app-product-item>
+    <div class="button d-flex justify-content-center">
+      <app-button [name]="textbtn"></app-button>
+    </div>
+  </div>
+</div>
+

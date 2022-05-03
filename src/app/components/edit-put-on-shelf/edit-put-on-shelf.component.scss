@@ -1,0 +1,46 @@
+.btn-w {
+  width: 100%;
+}
+.fs-size{
+  font-size: 14px;
+}
+input[type=text].ng-touched.ng-invalid {
+    border-color: red;
+}
+select.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+.form-control.ng-invalid.ng-dirty ~ .invalid-feedback,
+.form-control.ng-invalid.ng-touched ~ .invalid-feedback,
+.custom-control-input.ng-touched ~ .form-group .invalid-feedback,
+.ng-select-multiple ~ .invalid-feedback{
+    display: block;
+}
+.form-row.ng-invalid.ng-touched  .invalid-feedback,
+.form-row.ng-invalid.ng-touched ~ .invalid-feedback,
+.form-row.ng-invalid.ng-touched ~.form-row >.invalid-feedback{
+    display: block;
+}
+
+input[type=number].ng-touched.ng-invalid{
+  border-color: red;
+}
+
+.errorMessage{
+  color: red;
+  font-size: 14px;
+}
+.error{
+  border-color: red;
+}
+textarea.ng-invalid.ng-touched{
+  border-color: red;
+}
+::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value{
+  background-color:#87CEEB !important;
+}
+::ng-deep ng-select.ng-invalid.ng-touched .ng-select-container {
+  border-color: red !important;
+}
+
