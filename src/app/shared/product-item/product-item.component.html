@@ -2,7 +2,7 @@
   <div class="product-image d-flex justify-content-center">
     <img src="{{product?.thumbnail}}" width="138" height="180">
   </div>
-  <div class="product-description">
+  <div class="product-description" (click)="routeProductDetail(product?.productId)">
     <p class="cut-description">{{product?.description}}</p>
   </div>
   <div class="price d-flex justify-content-center">

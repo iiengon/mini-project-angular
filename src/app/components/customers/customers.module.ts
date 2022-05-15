@@ -4,11 +4,13 @@ import { CustomersRoutingModule } from './customers-routing.module';
 import { MarketplaceComponent } from './marketplace/marketplace.component';
 import { SharedModule } from '@mnproject/shared/shared.module';
 import { CartComponent } from './cart/cart.component';
+import { ProductDetailComponent } from './marketplace/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
     MarketplaceComponent,
-    CartComponent
+    CartComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,

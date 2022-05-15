@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="card mt-4">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-4 d-flex justify-content-end">
+            <div class="image-product">
+              <img [src]='productDetail?.page_image' height="250px">
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="description">
+              <div class="product_title">
+                <h5>{{productDetail?.title_en}}</h5>
+              </div>
+              <div class="product_price d-flex" *ngIf="productDetail?.discount_Price;else content">
+                <h5>฿ {{productDetail?.discount_Price}}</h5>
+                <span class="text-decoration-line-through text-discount">฿ {{productDetail?.product_Price}}</span>
+              </div>
+              <ng-template #content>
+                <div class="product_price">
+                <h5>฿ {{productDetail?.product_Price}}</h5>
+               </div>
+            </ng-template>
+              <div class="row option">
+                <div class="col-8">
+                  <ul style="list-style: none;" *ngFor="let item of productDetail?.color_list;let index=index">
+                    <li class="mt-3">
+                        <button type="button" class="btn btn-outline-secondary" style="display: flex;align-items:center; position: relative;" [class.active]="this.productDetail.color_list[index].color_id === activeIdx" (click)="selectOption(item,index)">
+                          <div [style.background-color]="item?.color_code" class="color-list"></div>
+                          <span style="margin-left: 10px;">{{item?.color_name_en}}</span>
+                        </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="product_amount">
+                <div class="row">
+                  <div class="col-3">
+                    <div class="product-amount">
+                      <label for="amount" class="form-label">Amount :</label>
+                      <div class="input-amount d-flex">
+                        <button class="increase-decrease" (click)="decrease()">-</button>
+                        <input type="number" class="form-control" id="amount" min="1" [value]="amount">
+                        <button class="increase-decrease" (click)="increase()">+</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-3 d-flex align-items-end">
+                    <div class="button d-flex justify-content-center">
+                      <app-button [name]="textbtn" (change)="addToCart()"></app-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+

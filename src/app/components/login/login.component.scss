@@ -1,0 +1,15 @@
+input.ng-touched.ng-invalid {
+  border-color: red;
+}
+.form-control.ng-invalid.ng-dirty ~ .invalid-feedback,
+.form-control.ng-invalid.ng-touched ~ .invalid-feedback,
+.custom-control-input.ng-touched ~ .form-group .invalid-feedback,
+.ng-select-multiple ~ .invalid-feedback{
+    display: block;
+}
+.form-row.ng-invalid.ng-touched  .invalid-feedback,
+.form-row.ng-invalid.ng-touched ~ .invalid-feedback,
+.form-row.ng-invalid.ng-touched ~.form-row >.invalid-feedback{
+    display: block;
+}
+

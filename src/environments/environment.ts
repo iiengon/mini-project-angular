@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   endpointAPI: 'http://localhost:9001',
   Product : {
-    getProducts: '/api/product-management/products'
+    getProducts: '/api/product-management/products',
+    getProductDetail: '/api/product-management/product/$productId'
   }
 
 };

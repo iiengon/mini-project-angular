@@ -1,0 +1,66 @@
+.box{
+  background-color: #fff;
+    padding: 5px 0;
+    margin: 5px 0;
+    border: 1px solid #ced4da;
+    position: relative;
+}
+.btn-outline-secondary{
+    width: 100%;
+&:hover{
+  color: black;
+  background-color: transparent;
+}
+}
+.color-list{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.active{
+  border: 2px solid #c97da1;
+  box-shadow: inset 0px 0px 0px 3px white,0px 1px 6px 1px rgba(50, 50, 93, 0.16), 0 1px 3px rgba(0, 0, 0, 0.08);
+  outline:0;
+}
+.active::after{
+  content: "\2713";
+    color: #fff;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 13px solid transparent;
+    border-right: 13px solid #c97da1;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid #c97da1;
+    right: 0;
+    bottom: 0;
+    text-indent: -2px;
+    line-height: .8;
+}
+.btn-outline-secondary.active {
+  color: black;
+  background-color: transparent;
+}
+.btn-outline-secondary.active:focus{
+  border: 2px solid#c97da1;
+  box-shadow: inset 0px 0px 0px 3px white,0px 1px 6px 1px rgba(50, 50, 93, 0.16), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+.text-discount{
+ color: #c97da1;
+ padding-left: 10px;
+}
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.increase-decrease{
+  border: 1px solid #ced4da;
+  padding: 0.375rem 0.75rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+}

@@ -10,12 +10,19 @@ export class ProductService {
   valueObs =  new BehaviorSubject<number>(0);
   count:number = 0
   constructor(private http: HttpClient,  private apiEndpoint: ApiEndpointService,) { }
+
   getProducts():Observable<any>{
     return this.http.get(this.apiEndpoint.getProdutcs).pipe(map(response => response));
   }
 
+  getProductDetail(id:any): Observable<any> {
+    return this.http
+      .get(`${this.apiEndpoint.getProductDetail.replace('$productId', id)}`)
+      .pipe(map(response => response));
+  }
+
+
   setProductsToCart(product:any){
-    console.log('setProductsToCart',product)
     this.products = product
   }
   getProductToCart(){

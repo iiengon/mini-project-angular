@@ -1,0 +1,33 @@
+
+<div class="container">
+  <div class="row justify-content-center pt-4">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">
+        <h4>Login Page</h4>
+        </div>
+        <div class="card-body">
+          <div class="form-login">
+            <form [formGroup]="myForm">
+              <div class="mb-3 form-group">
+                <label for="username" class="form-label">User Name : </label>
+                <input type="text" class="form-control" id="username" formControlName="username">
+                <div class="invalid-feedback">
+                  Looks good!
+                </div>
+              </div>
+              <div class="mb-3 form-group">
+                <label for="password" class="form-label">Password : </label>
+                <input type="password" class="form-control" formControlName="password">
+                <div class="invalid-feedback">
+                  Looks good!
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
