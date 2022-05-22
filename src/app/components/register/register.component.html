@@ -1,0 +1,41 @@
+
+
+  <div class="row justify-content-center pt-4">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">
+          <h4>Register</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="myForm">
+            <div class="mb-3 form-group">
+              <label for="name" class="form-label">Name :</label>
+              <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="mb-3 form-group">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+              <span class="errorMessgae" *ngIf="myForm.get('email')?.errors && myForm.get('email')?.errors?.['pattern']">Error pattern</span>
+              <span class="errorMessgae" *ngIf="(myForm.get('email')?.touched && myForm.get('email')?.invalid)&& !myForm.get('email')?.errors?.['pattern']">is requried</span>
+            </div>
+            <div class="mb-3 form-group">
+              <label for="username" class="form-label">User Name :</label>
+              <input type="text" class="form-control" id="username" formControlName="username">
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password :</label>
+              <div class="input-icon">
+                <i class="bi bi-eye-slash-fill icon" style="font-size: 1.3rem;" (click)="showPassword()"></i>
+                <input [type]="show ? 'text' : 'password'" class="form-control" id="password" formControlName="password">
+              </div>
+            </div>
+            <div class="btn-submit">
+              <button type="button" class="btn btn-info" (click)="submit()">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

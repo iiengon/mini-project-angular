@@ -7,7 +7,7 @@ import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '
 })
 export class LoginComponent implements OnInit {
   myForm: FormGroup;
-  constructor(private fb: FormBuilder,) {
+  constructor(private fb: FormBuilder) {
     this.myForm = fb.group({
       username: ['',Validators.required],
       password: ['',Validators.required]
@@ -17,5 +17,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  submit(){
+    this.myForm.get('username')?.markAsTouched()
+    this.myForm.get('password')?.markAsTouched()
+    if(this.myForm.invalid) return
+    console.log(this.myForm.value)
+  }
 }

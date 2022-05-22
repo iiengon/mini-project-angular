@@ -12,5 +12,30 @@ input.ng-touched.ng-invalid {
 .form-row.ng-invalid.ng-touched ~.form-row >.invalid-feedback{
     display: block;
 }
+.errorMessgae{
+  color: red;
+}
+.icon {
+  padding: 2px;
+  min-width: 40px;
+  position: absolute;
+}
 
+.input-icon{
+  margin-bottom: 8px;
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+.btn-submit{
+  display: flex;
+  justify-content: center;
+  .btn-info{
+    color: #000;
+    background-color: #add8e6;
+    border-color: #add8e6;
+    min-width: 50%;
+
+  }
+}
 

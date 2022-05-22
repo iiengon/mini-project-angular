@@ -1,3 +1,21 @@
 .bg-light{
-  background-color: #ADD8E6 !important;
+  background-color: #ADD8E6 !important
 }
+.navbar-nav{
+  align-items: center;
+}
+
+.nav-link{
+  position: relative;
+  color: black;
+  &.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    border: 2px solid #c97da1;
+    border-radius: 5px
+}
+}
+

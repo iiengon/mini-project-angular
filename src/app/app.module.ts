@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SharedModule } from '@mnproject/shared/shared.module';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
     HomeComponent,
     HeaderComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

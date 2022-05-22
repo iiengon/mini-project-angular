@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <img src="https://apis.multybeauty.com/uploads/images/logo-lg-multy.png" alt="" width="60" height="60" class="d-inline-block align-text-top">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,23 +7,23 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/">Home</a>
+          <a class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/customers">Marketpalce</a>
+          <a class="nav-link" routerLink="/customers" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Marketpalce</a>
         </li>
       </ul>
       <div class="list-menu" style="padding-right: 50px;">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link">Login</a>
+            <a class="nav-link" routerLink="/login" routerLinkActive="active-link">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Register</a>
+            <a class="nav-link" routerLink="/register" routerLinkActive="active-link">Register</a>
           </li>
           <li class="nav-item">
             <button type="button" class="btn position-relative pt-0">
-              <img src="https://cdn-icons-png.flaticon.com/512/34/34627.png" width="28px" routerLink="/customers/cart">
+              <i class="bi bi-cart4" routerLink="/customers/cart" style="font-size: 1.8rem;"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 {{count}}
               </span>

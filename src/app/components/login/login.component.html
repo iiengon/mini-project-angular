@@ -13,15 +13,16 @@
                 <label for="username" class="form-label">User Name : </label>
                 <input type="text" class="form-control" id="username" formControlName="username">
                 <div class="invalid-feedback">
-                  Looks good!
+                  this field is required
                 </div>
               </div>
               <div class="mb-3 form-group">
                 <label for="password" class="form-label">Password : </label>
                 <input type="password" class="form-control" formControlName="password">
-                <div class="invalid-feedback">
-                  Looks good!
-                </div>
+                <div [appValidation]="$any(myForm.get('password'))"></div>
+              </div>
+              <div class="submit d-flex justify-content-end">
+                <button type="button" class="btn btn-success" (click)="submit()">OK</button>
               </div>
             </form>
           </div>
